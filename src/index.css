@@ -3,10 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 @theme {
-  --color-nukey: #820AD1;
-  --color-nukey-dark: #6A08AB;
-  --color-nukey-light: #9B3BE3;
-  --color-nukey-surface: #F8F4FD;
+  --color-nubank: #820AD1;
+  --color-nubank-dark: #6a08ab;
+  --color-nubank-light: #9b3be3;
   --font-sans: 'Roboto', sans-serif;
 }
 
@@ -33,10 +32,15 @@ body {
   min-height: 100dvh;
 }
 
-/* Institutional Design Classes */
-.btn-press:active {
-  transform: scale(0.98);
-  transition: transform 0.1s ease-out;
+/* Nubank Pulse Animation for Button */
+@keyframes nubank-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(130, 10, 209, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(130, 10, 209, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(130, 10, 209, 0); }
+}
+
+.animate-nubank-pulse {
+  animation: nubank-pulse 2s infinite;
 }
 
 /* Custom Scrollbar */
