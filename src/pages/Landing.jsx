@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Search, ChevronRight } from 'lucide-react'
+import { Search } from 'lucide-react'
 import bannerImg from '../assets/banner.jpg'
 import logoImg from '../assets/logo.png'
 
@@ -7,81 +7,59 @@ export default function Landing() {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-dvh bg-[#f4f4f4] flex flex-col font-sans">
-      
-      {/* Header Branco Sólido - Igual Nubank */}
-      <header className="bg-white px-5 py-3 flex items-center justify-between sticky top-0 z-50 shadow-sm">
-        <img src={logoImg} alt="nu" className="h-7 w-auto" />
-        
-        <button className="bg-[#820AD1] text-white text-[12px] font-bold px-5 py-[10px] rounded-full">
+    <div
+      className="relative h-dvh w-full flex flex-col p-5 box-border bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${bannerImg})` }}
+    >
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40 z-[1]" />
+
+      {/* Navbar */}
+      <header className="relative z-[2] flex items-center justify-between">
+        <img src={logoImg} alt="Nubank Logo" className="h-7 w-auto" />
+        <button className="bg-[#8a05be] text-white text-[12px] font-bold px-5 py-[10px] rounded-full">
           Quero ser Nubank
         </button>
-
-        <div className="flex items-center gap-4">
-          <Search className="w-[22px] h-[22px] text-[#820AD1] stroke-[2.5]" />
-          <div className="flex flex-col gap-[4px] cursor-pointer">
-            <div className="w-[22px] h-[2px] bg-[#820AD1] rounded-full"></div>
-            <div className="w-[22px] h-[2px] bg-[#820AD1] rounded-full"></div>
+        <div className="flex items-center gap-3">
+          <Search className="w-5 h-5 text-white stroke-[2.5]" />
+          <div className="flex flex-col gap-[4px]">
+            <div className="w-[22px] h-[2px] bg-white rounded-full" />
+            <div className="w-[22px] h-[2px] bg-white rounded-full" />
           </div>
         </div>
       </header>
 
-      {/* Banner com texto e botão POR CIMA */}
-      <div className="relative">
-        <img 
-          src={bannerImg} 
-          alt="Nubank" 
-          className="w-full aspect-[3/4] object-cover"
-        />
-        
-        {/* Gradient para legibilidade do texto */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-
-        {/* Texto + Botão sobre o banner */}
-        <div className="absolute bottom-24 left-0 px-6">
-          <h1 className="text-white text-[36px] font-bold leading-[1.08] tracking-[-0.01em]">
-            Resgate seus<br />
-            pontos e ganhe<br />
-            prêmios exclusivos
-          </h1>
-        </div>
-
-        <div className="absolute bottom-8 left-0 px-6">
-          <button
-            onClick={() => navigate('/auth')}
-            className="bg-[#820AD1] text-white font-bold text-[14px] py-[14px] px-8 rounded-full active:scale-[0.97] transition-transform"
-          >
-            Resgatar agora
-          </button>
-        </div>
-      </div>
-
-      {/* Card Branco sobrepondo o banner */}
-      <div className="bg-white rounded-t-[24px] -mt-4 relative z-10 px-6 pt-8 pb-10">
-        <h2 className="text-[20px] font-bold text-[#1a1a1a] leading-tight mb-6">
-          Resgate seus pontos do<br />
-          cartão Nubank agora
-        </h2>
-
-        <p className="text-[14px] text-[#777] leading-relaxed mb-8">
-          Facilidade para realizar suas compras com vantagens e benefícios exclusivos.
-        </p>
-
+      {/* Main Content - pushed to bottom with mt-auto */}
+      <main className="relative z-[2] mt-auto mb-5">
+        <h1 className="text-white text-[2.5rem] font-bold leading-[1.08] mb-5">
+          Resgate seus pontos e ganhe prêmios exclusivos
+        </h1>
         <button
           onClick={() => navigate('/auth')}
-          className="w-full bg-[#820AD1] text-white font-bold text-[16px] py-[18px] rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
+          className="bg-[#8a05be] text-white text-[14px] font-bold py-[14px] px-8 rounded-full"
         >
-          Continuar
-          <ChevronRight className="w-5 h-5" />
+          Resgatar agora
         </button>
-      </div>
+      </main>
 
-      {/* Footer Links - Igual Nubank */}
-      <div className="bg-white border-t border-gray-100 px-6 py-5 flex justify-center gap-8">
-        <span className="text-[11px] font-bold text-[#777] uppercase tracking-widest">Privacidade</span>
-        <span className="text-[11px] font-bold text-[#777] uppercase tracking-widest">Segurança</span>
-        <span className="text-[11px] font-bold text-[#777] uppercase tracking-widest">Ajuda</span>
-      </div>
+      {/* Signup Card */}
+      <section className="relative z-[2] bg-white rounded-[24px] p-6 mt-5">
+        <h3 className="text-[18px] font-bold text-[#1a1a1a] leading-tight mb-4">
+          Resgate seus pontos do cartão Nubank
+        </h3>
+        <input
+          type="text"
+          placeholder="Digite seu CPF"
+          className="w-full p-[15px] bg-[#f4f4f4] border-none rounded-[12px] my-[10px] text-[15px] outline-none"
+        />
+        <button
+          onClick={() => navigate('/auth')}
+          className="w-full bg-[#8a05be] text-white font-bold p-[15px] rounded-[30px] flex items-center justify-between text-[16px] border-none"
+        >
+          <span>Continuar</span>
+          <span className="text-xl">›</span>
+        </button>
+      </section>
     </div>
   )
 }
