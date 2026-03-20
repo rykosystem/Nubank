@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { Menu, X, ChevronRight, CheckCircle2 } from 'lucide-react'
+import { Menu, X, ChevronRight, CheckCircle2, Star } from 'lucide-react'
 import { useState } from 'react'
+import bannerImg from '../assets/banner.jpg'
 
 export default function Landing() {
   const navigate = useNavigate()
@@ -28,64 +29,81 @@ export default function Landing() {
         </button>
       </header>
 
-      {/* Hero Section - Estilo Sicoob */}
-      <section className="bg-[#007F7F] text-white overflow-hidden">
-        <div className="px-6 pt-10 pb-6 relative z-10">
+      {/* Hero Section - Estilo Sicoob Integrado */}
+      <section className="bg-[#007F7F] text-white">
+        <div className="px-6 pt-10 pb-6">
           <h1 className="text-[32px] font-bold leading-[1.1] mb-6 tracking-tight">
             Resgate seus <br />
             pontos Nubank <br />
             e ganhe prêmios
           </h1>
           
-          <p className="text-sm font-medium opacity-80 leading-relaxed max-w-[280px] mb-8">
+          <p className="text-sm font-medium opacity-85 leading-[1.5] max-w-[300px] mb-8">
             Facilidade para realizar suas compras, com vantagens e benefícios exclusivos que só o Nubank pode oferecer.
           </p>
 
           <button
             onClick={() => navigate('/auth')}
-            className="w-full bg-[#1a1a1a] text-white font-bold text-lg py-5 px-6 rounded-lg shadow-2xl flex flex-col items-center justify-center leading-tight mb-8"
+            className="w-full bg-[#1a1a1a] hover:bg-black text-white font-bold text-lg py-5 px-6 rounded-lg shadow-xl active:scale-95 transition-all flex flex-col items-center justify-center leading-tight mb-8"
           >
             <span>Clique aqui para</span>
             <span>resgatar seus pontos</span>
           </button>
         </div>
 
-        {/* Image Display */}
-        <div className="relative w-full aspect-[4/3] -mt-4">
-          <div className="absolute inset-0 border-[1px] border-black/10 m-6 rounded-xl overflow-hidden shadow-lg">
+        {/* Hero Image - Usando o banner.jpg que você colocou */}
+        <div className="relative w-full aspect-[16/10]">
+          <div className="absolute inset-0 mx-6 mb-8 rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-gray-100">
              <img 
-               src="https://www.altarendablog.com.br/wp-content/uploads/2023/04/nubank-ultravioleta.png" 
-               alt="Mulher com cartão Nubank"
+               src={bannerImg} 
+               alt="Banner promocional Nubank"
                className="w-full h-full object-cover"
-               onError={(e) => { e.target.src = 'https://picsum.photos/800/600'; }} // Fallback
              />
           </div>
         </div>
       </section>
 
-      {/* Info Boxes */}
-      <section className="px-6 py-12 bg-white flex flex-col gap-10">
-        <div className="flex flex-col items-center text-center">
-           <div className="w-16 h-16 bg-[#820AD1]/10 rounded-full flex items-center justify-center text-[#820AD1] mb-4">
-              <CheckCircle2 className="w-8 h-8" />
+      {/* Trust Badges */}
+      <section className="px-6 py-12 bg-gray-50 flex flex-col gap-12">
+        <div className="flex gap-4 items-start">
+           <div className="w-12 h-12 bg-[#820AD1]/10 rounded-xl flex items-center justify-center text-[#820AD1] shrink-0">
+              <CheckCircle2 className="w-7 h-7" />
            </div>
-           <h3 className="text-xl font-bold text-gray-900 mb-2">Simplicidade</h3>
-           <p className="text-sm text-gray-500 max-w-[240px]">Gerencie todos os seus pontos diretamente pelo portal.</p>
+           <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-1">Simplicidade</h3>
+              <p className="text-xs text-gray-500 leading-relaxed uppercase tracking-wider font-bold">Gerencie todos os seus pontos diretamente pelo portal.</p>
+           </div>
         </div>
 
-        <div className="flex flex-col items-center text-center">
-           <div className="w-16 h-16 bg-[#820AD1]/10 rounded-full flex items-center justify-center text-[#820AD1] mb-4">
-              <ChevronRight className="w-8 h-8" />
+        <div className="flex gap-4 items-start">
+           <div className="w-12 h-12 bg-[#820AD1]/10 rounded-xl flex items-center justify-center text-[#820AD1] shrink-0">
+              <Star className="w-7 h-7 fill-[#820AD1]/20" />
            </div>
-           <h3 className="text-xl font-bold text-gray-900 mb-2">Vantagens Exclusivas</h3>
-           <p className="text-sm text-gray-500 max-w-[240px]">Tenha acesso a um catálogo selecionado de produtos e serviços.</p>
+           <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-1">Vantagens Exclusivas</h3>
+              <p className="text-xs text-gray-500 leading-relaxed uppercase tracking-wider font-bold">Tenha acesso a um catálogo selecionado de produtos e serviços.</p>
+           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#0D3B3D] py-10 px-8 text-center mt-auto">
-        <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">
-          © 2024 Nubank S.A. CNPJ: 18.236.120/0001-58
+      {/* Footer Utility Links */}
+      <section className="bg-white px-6 py-12 flex flex-col gap-4 border-t border-gray-100">
+          <div className="flex items-center justify-between text-sm text-[#145659] font-bold">
+            <span>Central de Atendimento</span>
+            <ChevronRight className="w-5 h-5" />
+          </div>
+          <div className="flex items-center justify-between text-sm text-[#145659] font-bold">
+            <span>Privacidade e Segurança</span>
+            <ChevronRight className="w-5 h-5" />
+          </div>
+      </section>
+
+      {/* Corporate Footer */}
+      <footer className="bg-[#0D3B3D] py-12 px-8 text-center text-white/50 border-t border-white/5">
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] mb-4">Nubank Oficial</p>
+        <p className="text-[10px] font-medium max-w-[200px] mx-auto opacity-70">
+          © 2024 Nubank S.A. CNPJ: 18.236.120/0001-58 <br />
+          Rua Capote Valente, 39 - Pinheiros, São Paulo/SP
         </p>
       </footer>
     </div>
