@@ -1,16 +1,13 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 @theme {
   --color-nukey: #820AD1;
   --color-nukey-dark: #6A08AB;
-  --color-nukey-darker: #4B067A;
   --color-nukey-light: #9B3BE3;
-  --color-nukey-lighter: #BC85F5;
   --color-nukey-surface: #F8F4FD;
-  --color-nukey-card: #FFFFFF;
-  --font-sans: 'Outfit', sans-serif;
+  --font-sans: 'Roboto', sans-serif;
 }
 
 * {
@@ -23,12 +20,11 @@
 html {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: #FDFDFD;
-  color: #0F0F0F;
+  color: #1a1a1a;
   min-height: 100dvh;
   overflow-x: hidden;
 }
@@ -37,53 +33,9 @@ body {
   min-height: 100dvh;
 }
 
-/* Glassmorphism Classes */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.glass-dark {
-  background: rgba(130, 10, 209, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Animations */
-@keyframes softFadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes drawProgress {
-  from { width: 0%; }
-  to { width: var(--progress-width); }
-}
-
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-.animate-soft-up {
-  animation: softFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-float {
-  animation: subtleFloat 4s ease-in-out infinite;
-}
-
+/* Institutional Design Classes */
 .btn-press:active {
-  transform: scale(0.96);
+  transform: scale(0.98);
   transition: transform 0.1s ease-out;
 }
 
