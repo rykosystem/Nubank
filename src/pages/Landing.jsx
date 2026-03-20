@@ -8,14 +8,14 @@ export default function Landing() {
 
   return (
     <div
-      className="relative h-dvh w-full flex flex-col p-5 box-border bg-cover bg-center bg-no-repeat"
+      className="relative h-dvh w-full flex flex-col bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bannerImg})` }}
     >
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-[1]" />
 
       {/* Navbar */}
-      <header className="relative z-[2] flex items-center justify-between">
+      <header className="relative z-[2] flex items-center justify-between px-5 py-4">
         <img src={logoImg} alt="Nubank Logo" className="h-7 w-auto" />
         <button className="bg-[#8a05be] text-white text-[12px] font-bold px-5 py-[10px] rounded-full">
           Quero ser Nubank
@@ -29,37 +29,42 @@ export default function Landing() {
         </div>
       </header>
 
-      {/* Main Content - pushed to bottom with mt-auto */}
-      <main className="relative z-[2] mt-auto mb-5">
-        <h1 className="text-white text-[2.5rem] font-bold leading-[1.08] mb-5">
+      {/* Spacer to push content down */}
+      <div className="flex-1" />
+
+      {/* Title */}
+      <div className="relative z-[2] px-6 mb-6">
+        <h1 className="text-white text-[34px] font-bold leading-[1.08]">
           Resgate seus pontos e ganhe prêmios exclusivos
         </h1>
-        <button
-          onClick={() => navigate('/auth')}
-          className="bg-[#8a05be] text-white text-[14px] font-bold py-[14px] px-8 rounded-full"
-        >
-          Resgatar agora
-        </button>
-      </main>
+        <p className="text-white/70 text-[14px] mt-3 leading-relaxed">
+          Facilidade para realizar suas compras com vantagens e benefícios exclusivos.
+        </p>
+      </div>
 
-      {/* Signup Card */}
-      <section className="relative z-[2] bg-white rounded-[24px] p-6 mt-5">
-        <h3 className="text-[18px] font-bold text-[#1a1a1a] leading-tight mb-4">
-          Resgate seus pontos do cartão Nubank
-        </h3>
-        <input
-          type="text"
-          placeholder="Digite seu CPF"
-          className="w-full p-[15px] bg-[#f4f4f4] border-none rounded-[12px] my-[10px] text-[15px] outline-none"
-        />
+      {/* Botão Pulsante Centralizado */}
+      <div className="relative z-[2] flex justify-center px-6 pb-14">
         <button
           onClick={() => navigate('/auth')}
-          className="w-full bg-[#8a05be] text-white font-bold p-[15px] rounded-[30px] flex items-center justify-between text-[16px] border-none"
+          className="animate-pulse-btn bg-[#8a05be] hover:bg-[#9b2bd6] text-white font-bold text-[17px] py-5 px-14 rounded-full shadow-[0_0_30px_rgba(138,5,190,0.5)] active:scale-[0.96] transition-transform"
         >
-          <span>Continuar</span>
-          <span className="text-xl">›</span>
+          Resgate seus pontos
         </button>
-      </section>
+      </div>
+
+      <style>{`
+        @keyframes pulse-btn {
+          0%, 100% {
+            box-shadow: 0 0 0 0 rgba(138, 5, 190, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 0 16px rgba(138, 5, 190, 0);
+          }
+        }
+        .animate-pulse-btn {
+          animation: pulse-btn 2s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   )
 }
